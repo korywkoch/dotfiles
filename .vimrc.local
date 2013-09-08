@@ -1,0 +1,11 @@
+
+" User plugin configurations
+let g:snips_author = 'Kory Koch'
+
+" Enable vim theme solarized
+syntax enable
+set background=dark
+colorscheme solarized
+
+" Toggle light/dark bg with F10
+call togglebg#map("<F10>")

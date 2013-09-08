@@ -1,0 +1,52 @@
+# -----------------------------------------------
+# Last in the list being sourced from `~/.bashrc`
+# ---------------------------------------------- 
+
+# Pull in any non-public stuff from .bashrc.private
+# which shouldn't be checked into source control
+if [[ -f ~/.bashrc.private ]]; then source ~/.bashrc.private; fi
+
+# Add any aliases, settings or overrides
+# --------------------------------------
+
+# Return custom PS1 prompt
+get_prompt(){
+  # default foreground color
+  local off="\[\033[0m\]"    # unsets color to term's fg color
+  
+  # regular colors
+  local gray="\[\033[1;30m\]"    # gray
+  local black="\[\033[0;30m\]"   # black
+  local red="\[\033[0;31m\]"     # red
+  local green="\[\033[0;32m\]"   # green
+  local yellow="\[\033[0;33m\]"  # yellow
+  local blue="\[\033[0;34m\]"    # blue
+  local magenta="\[\033[0;35m\]" # magenta
+  local cyan="\[\033[0;36m\]"    # cyan
+  local white="\[\033[0;37m\]"   # white
+
+  echo "\n$gray\u@\h \w >\n$white$ $off"
+}
+
+#set custom prompt
+export PS1=$(get_prompt)
+
+# aliases
+alias cls='clear'
+alias mysqlstart='sudo /Library/StartupItems/MySQLCOM/MySQLCOM start'
+alias ls='ls -F'
+alias hosts='sudo $EDITOR /etc/hosts'
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# init z (https://github.com/rupa/z)
+. ~/dev/utils/z/z.sh
+
+#rvm 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
