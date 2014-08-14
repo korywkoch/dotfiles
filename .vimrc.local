@@ -10,3 +10,17 @@ colorscheme smyck
 " Toggle light/dark bg with F10
 call togglebg#map("<F10>")
 :highlight LineNr ctermfg=10
+
+" Add command to toggle relative line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <Leader>tn :call NumberToggle()<CR>
+":au FocusLost * :set number
+":au FocusGained * :set relativenumber
+"autocmd InsertEnter * :set number
+"autocmd InsertLeave * :set relativenumber
