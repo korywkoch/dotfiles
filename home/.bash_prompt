@@ -42,7 +42,7 @@ export LSCOLORS=excxgxfxbxdxbxbxbxexex
 if [[ -f ~/.git-prompt.sh ]]; then source ~/.git-prompt.sh; fi
 
 git_branch(){
-  __git_ps1 " [%s]"
+  __git_ps1 "[%s] "
 }
 
 # Return custom PS1 prompt
@@ -61,7 +61,7 @@ get_prompt(){
   local cyan="\[\033[0;36m\]"    # cyan
   local white="\[\033[0;37m\]"   # white
 
-  echo "\n\u@\h $blue\w $red$(git_branch) $white>\n$green$ $off"
+  echo "\n\u@\h $blue\w $red$(git_branch)$white>\n$green$ $off"
 }
 
 #set custom prompt
