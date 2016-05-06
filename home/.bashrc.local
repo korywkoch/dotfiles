@@ -1,0 +1,17 @@
+# -----------------------------------------------
+# Last in the list being sourced from `~/.bashrc`
+# ---------------------------------------------- 
+
+# Pull in any non-public stuff from .bashrc.private
+# which shouldn't be checked into source control
+if [[ -f ~/.bashrc.private ]]; then source ~/.bashrc.private; fi
+
+# Open VS Code.
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+
+# init z (https://github.com/rupa/z)
+. ~/dev/utils/z/z.sh
+
+#rvm 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
