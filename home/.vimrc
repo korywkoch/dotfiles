@@ -1,4 +1,3 @@
-
 " Disable vi 
 set nocompatible
 filetype off
@@ -26,6 +25,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'Valloric/YouCompleteMe' 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
+Plugin 'rking/ag.vim'
 
 " Preferences
 " -----------------------------------------------------------------------------
@@ -94,7 +95,6 @@ set novisualbell
 set ttyfast
 set laststatus=2
 " set list
-" set listchars=tab:▸\ 
 set foldlevelstart=0
 set foldmethod=marker
 set formatoptions=tcq
@@ -117,30 +117,18 @@ runtime macros/matchit.vim
 " NERDTree ignores
 let NERDSpaceDelims=1
 let NERDTreeWinSize=30
-let g:NERDTreeIgnore=['build$','tags']
-" Disable horrible bg on executable files in NERDTree
-highlight link NERDTreeExecFile ModeMsg
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeIgnore=['build$','tags', '.git']
+highlight link NERDTreeExecFile ModeMsg " Disable horrible bg on executable files in NERDTree
 
 let g:ctrlp_custom_ignore='vendor/bundle\|.sass-cache\|tmp/cache\|.git$'
 let g:ctrlp_by_filename=1
 let g:ctrlp_extensions=['line', 'changes']
 let g:ctrlp_cache_dir=$HOME.'/.vim/tmp/ctrlp/'
-
-let g:buffergator_suppress_keymaps=1
-let g:buffergator_viewport_split_policy="B"
-let g:buffergator_sort_regime="basename"
-let g:buffergator_split_size=10
-
-let g:statline_filename_relative=1
-let g:statline_show_encoding=0
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['settings.json']
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
-
-" let g:SuperTabDefaultCompletionType='context'
-let g:SuperTabLongestEnhanced=1
-let g:SuperTabLongestHighlight=1
 
 let g:snippets_dir=$HOME.'/.vim/snippets/'
 
@@ -148,8 +136,8 @@ let g:yankring_window_height=10
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
 " Disable GitGutter on startup and not so eager on the repaints
-let g:gitgutter_enabled = 0
-let g:gitgutter_eager = 0
+let g:gitgutter_enabled=0
+let g:gitgutter_eager=0
 
 let g:tagbar_sort=0
 " if executable('coffeetags')
@@ -215,8 +203,8 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Leader mapping
 " -----------------------------------------------------------------------------
-" Find the goods, ack style
-map <leader>f :Ack!
+" Find the goods, ag style
+map <leader>f :Ag 
 
 " Edit .vimrc, .vimrc.local and .bashrc_local
 nmap <leader>evm <C-w><C-v><C-l>:e ~/.vimrc<cr>
@@ -261,12 +249,6 @@ function! s:setMarkdown()
   au! BufWritePost *.{md,markdown,mdown,mkd,mkdn} :MDP
 endfunction
 
-" " Hooks for previewing or running .coffee -> .js
-" function! s:setCoffee()
-"   map <buffer> <silent><leader>b :CoffeeCompile vertical<cr>
-"   map <buffer> <silent><leader>d :CoffeeRun<cr>
-" endfunction
-
 " File handling and settings
 " -----------------------------------------------------------------------------
 if !exists("autocommands_loaded")
@@ -291,11 +273,6 @@ if !exists("autocommands_loaded")
   autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
   autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 endif
-
-" Default theme
-" -----------------------------------------------------------------------------
-set background=dark
-colorscheme colorblind
 
 " Load user config
 " -----------------------------------------------------------------------------
