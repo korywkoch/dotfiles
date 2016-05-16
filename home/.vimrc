@@ -23,10 +23,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-" Use Pathogen to load bundles
-" execute pathogen#infect()
-" execute pathogen#helptags()
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'Valloric/YouCompleteMe' 
+Plugin 'airblade/vim-gitgutter'
 
 " Preferences
 " -----------------------------------------------------------------------------
@@ -78,6 +77,7 @@ colorscheme solarized
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
+set laststatus=2
 
 " UI
 set t_Co=256
@@ -118,6 +118,9 @@ runtime macros/matchit.vim
 let NERDSpaceDelims=1
 let NERDTreeWinSize=30
 let g:NERDTreeIgnore=['build$','tags']
+" Disable horrible bg on executable files in NERDTree
+highlight link NERDTreeExecFile ModeMsg
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:ctrlp_custom_ignore='vendor/bundle\|.sass-cache\|tmp/cache\|.git$'
 let g:ctrlp_by_filename=1
@@ -150,11 +153,11 @@ let g:gitgutter_eager = 0
 
 let g:tagbar_sort=0
 " if executable('coffeetags')
-  " let g:tagbar_type_coffee = {
-      " \ 'kinds': ['f:functions', 'o:object'],
-      " \ 'kind2scope': {'f': 'object', 'o': 'object'},
-      " \ 'sro': ".", 'ctagsbin': 'coffeetags', 'ctagsargs': '--include-vars ',
-      " \}
+"   let g:tagbar_type_coffee = {
+"       \ 'kinds': ['f:functions', 'o:object'],
+"       \ 'kind2scope': {'f': 'object', 'o': 'object'},
+"       \ 'sro': ".", 'ctagsbin': 'coffeetags', 'ctagsargs': '--include-vars ',
+"       \}
 " endif
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -183,6 +186,10 @@ nmap gV `[v`]
 
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
+
+" Enable n0ob save
+map <M-s> :w<kEnter>
+imap <M-s> <Esc>:w<kEnter>i
 
 " Function keys for plugin lists, <F8>-<F10> is reserved for .vimrc.local
 let g:ctrlp_map='<F1>'
@@ -231,7 +238,7 @@ map <leader>CS :!sass-convert -F css -T sass<cr>
 " Reload ctags
 map <leader>rt :!ctags --extra=+f -R *<cr><cr>
 
-" Closes the window showing the location list from sytastic errors
+" Closes the window showing the location list from syntastic errors
 map <silent><leader>lc :lcl<cr>
 
 " Yank/paste contents using an unnamed register
@@ -254,11 +261,11 @@ function! s:setMarkdown()
   au! BufWritePost *.{md,markdown,mdown,mkd,mkdn} :MDP
 endfunction
 
-" Hooks for previewing or running .coffee -> .js
-function! s:setCoffee()
-  map <buffer> <silent><leader>b :CoffeeCompile vertical<cr>
-  map <buffer> <silent><leader>d :CoffeeRun<cr>
-endfunction
+" " Hooks for previewing or running .coffee -> .js
+" function! s:setCoffee()
+"   map <buffer> <silent><leader>b :CoffeeCompile vertical<cr>
+"   map <buffer> <silent><leader>d :CoffeeRun<cr>
+" endfunction
 
 " File handling and settings
 " -----------------------------------------------------------------------------
@@ -272,7 +279,6 @@ if !exists("autocommands_loaded")
   au BufRead,BufNewFile *.hamlc set filetype=haml
   au BufRead,BufNewFile *.emblem set filetype=slim
   au BufRead,BufNewFile *.txt call s:setWrapping()
-  au BufRead,BufNewFile *.coffee call s:setCoffee()
 
   " Reload .vimrc after it or vimrc.local has been saved
   au! BufWritePost .vimrc source %
