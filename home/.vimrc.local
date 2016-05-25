@@ -2,25 +2,20 @@
 
 " Enable vim theme
 syntax enable
-" set background=dark
-" colorscheme solarized
-" colorscheme smyck
-colorscheme tomorrow
+colorscheme onedark
 
-" Toggle light/dark bg with F10
-" call togglebg#map("<F10>")
-:highlight LineNr ctermfg=10
+" Custom color tweaks
+":highlight LineNr ctermfg=10
+:highlight VertSplit ctermbg=darkgrey
 
-" Add command to toggle relative line numbers
+" Toggle relative line numbers
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
+  if(&relativenumber)
+    set norelativenumber 
   else
     set relativenumber
   endif
 endfunc
-nnoremap <Leader>tn :call NumberToggle()<CR>
-":au FocusLost * :set number
-":au FocusGained * :set relativenumber
-"autocmd InsertEnter * :set number
+nnoremap <silent><Leader>tn :call NumberToggle()<CR>
+"autocmd InsertEnter * :set norelativenumber
 "autocmd InsertLeave * :set relativenumber

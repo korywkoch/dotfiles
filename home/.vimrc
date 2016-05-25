@@ -27,6 +27,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'rking/ag.vim'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'joshdick/onedark.vim'
 
 " Preferences
 " -----------------------------------------------------------------------------
@@ -129,6 +132,7 @@ let g:ctrlp_root_markers = ['settings.json']
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
+let g:syntastic_typescript_checkers = ['tslint']
 
 let g:snippets_dir=$HOME.'/.vim/snippets/'
 

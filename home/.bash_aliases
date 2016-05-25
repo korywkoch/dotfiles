@@ -4,11 +4,14 @@ alias mysqlstart='sudo /Library/StartupItems/MySQLCOM/MySQLCOM start'
 alias ls='ls -Fal'
 alias hosts='sudo $EDITOR /etc/hosts'
 alias ping='ping -c4'
+alias home='cd ~/'
+
+# cd and ls
+function cdl { cd $1; ls; }
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # File size
 alias fs="stat -f \"%z bytes\""
-
 

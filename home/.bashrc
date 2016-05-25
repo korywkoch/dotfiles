@@ -37,3 +37,6 @@ if [ -f ~/.bashrc.local ]; then source ~/.bashrc.local; fi
 #  echo -e "\033[0;35m------------------------------------------\033[0m"
 #fi
 
+
+export NVM_DIR="/Users/kory.koch/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
