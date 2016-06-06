@@ -2,11 +2,13 @@
 
 " Enable vim theme
 syntax enable
-colorscheme onedark
+"colorscheme onedark 
+
 
 " Custom color tweaks
 ":highlight LineNr ctermfg=10
 :highlight VertSplit ctermbg=darkgrey
+:highlight Normal ctermbg=none
 
 " Toggle relative line numbers
 function! NumberToggle()
@@ -17,5 +19,5 @@ function! NumberToggle()
   endif
 endfunc
 nnoremap <silent><Leader>tn :call NumberToggle()<CR>
-"autocmd InsertEnter * :set norelativenumber
-"autocmd InsertLeave * :set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber

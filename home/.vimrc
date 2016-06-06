@@ -26,6 +26,7 @@ Plugin 'vim-scripts/YankRing.vim'
 Plugin 'Valloric/YouCompleteMe' 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
+Plugin 'mkitt/tabline.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'leafgarland/typescript-vim'
@@ -42,8 +43,8 @@ set autoindent
 set autoread
 set smartindent
 set smarttab
-set expandtab
 set tabstop=2
+set noexpandtab
 set shiftwidth=2
 set softtabstop=2
 set backspace=indent,eol,start
@@ -74,10 +75,12 @@ set hlsearch
 set gdefault
 set grepprg=ack
 
-" Airline Status Bar
+" Theme
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
+colorscheme polarized 
+
+" Airline Status Bar
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
@@ -105,6 +108,10 @@ set nowrap
 
 if has("mouse")
  set mouse=a
+ if &term =~ '^screen'
+	 " tmux knows the extended mouse mode
+	 set ttymouse=xterm2
+ endif
 endif
 
 if $TERM == 'xterm-color' && &t_Co == 8
@@ -132,7 +139,13 @@ let g:ctrlp_root_markers = ['settings.json']
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
-let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+let g:syntastic_typescript_tsc_fname = ''
+"let g:syntastic_typescript_tsc_args = ''
+"let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+"autocmd QuickFixCmdPost [^l]* nested cwindow
+"autocmd QuickFixCmdPost    l* nested lwindow
 
 let g:snippets_dir=$HOME.'/.vim/snippets/'
 
@@ -178,10 +191,6 @@ nmap gV `[v`]
 
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
-
-" Enable n0ob save
-map <M-s> :w<kEnter>
-imap <M-s> <Esc>:w<kEnter>i
 
 " Function keys for plugin lists, <F8>-<F10> is reserved for .vimrc.local
 let g:ctrlp_map='<F1>'
