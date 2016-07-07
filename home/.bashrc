@@ -31,6 +31,9 @@ if [ -f ~/.bash_aliases ]; then source ~/.bash_aliases; fi
 if [ -f ~/.bash_completions ]; then source ~/.bash_completions; fi
 if [ -f ~/.bashrc.local ]; then source ~/.bashrc.local; fi
 
+# Use vi key-bindings in shell
+set editing-mode vi
+
 # Only print if we're in an interactive shell.
 # Non-interactive stuff like rsync will blow up otherwise
 #if [[ "$-" == *"i"* ]]; then

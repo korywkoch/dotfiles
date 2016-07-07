@@ -58,7 +58,7 @@ set hidden
 set splitbelow splitright
 set autowrite
 set clipboard=unnamed
-set wildignore+=*.DS_Store,.git,*.swp,node_modules
+set wildignore+=*.DS_Store,.git,*.swp,node_modules,jspm_packages
 
 " Backups
 set history=1000
@@ -127,7 +127,7 @@ runtime macros/matchit.vim
 " NERDTree ignores
 let NERDSpaceDelims=1
 let NERDTreeWinSize=30
-let g:NERDTreeIgnore=['build$','tags', '.git']
+let g:NERDTreeIgnore=['build$','tags', '.git', 'node_modules', 'jspm_packages']
 highlight link NERDTreeExecFile ModeMsg " Disable horrible bg on executable files in NERDTree
 
 let g:ctrlp_custom_ignore='vendor/bundle\|.sass-cache\|tmp/cache\|.git$'
@@ -135,17 +135,14 @@ let g:ctrlp_by_filename=1
 let g:ctrlp_extensions=['line', 'changes']
 let g:ctrlp_cache_dir=$HOME.'/.vim/tmp/ctrlp/'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['settings.json']
+let g:ctrlp_root_markers = ['settings.json', 'README.md', 'gulpfile.js']
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"attribute name", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_typescript_tsc_fname = ''
-"let g:syntastic_typescript_tsc_args = ''
-"let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
-"autocmd QuickFixCmdPost [^l]* nested cwindow
-"autocmd QuickFixCmdPost    l* nested lwindow
 
 let g:snippets_dir=$HOME.'/.vim/snippets/'
 
@@ -274,6 +271,9 @@ if !exists("autocommands_loaded")
   au BufRead,BufNewFile *.hamlc set filetype=haml
   au BufRead,BufNewFile *.emblem set filetype=slim
   au BufRead,BufNewFile *.txt call s:setWrapping()
+
+	" Remove trailing whitespace
+	autocmd BufWritePre *.ts :%s/\s\+$//e
 
   " Reload .vimrc after it or vimrc.local has been saved
   au! BufWritePost .vimrc source %

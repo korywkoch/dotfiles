@@ -1,14 +1,15 @@
 " User plugin configurations
 
 " Enable vim theme
-syntax enable
-"colorscheme onedark 
+"syntax enable
+colorscheme tomorrow
 
 
 " Custom color tweaks
 ":highlight LineNr ctermfg=10
-:highlight VertSplit ctermbg=darkgrey
-:highlight Normal ctermbg=none
+":highlight VertSplit ctermbg=darkgrey
+":highlight Normal ctermbg=none
+":highlight NonText ctermbg=none
 
 " Toggle relative line numbers
 function! NumberToggle()
