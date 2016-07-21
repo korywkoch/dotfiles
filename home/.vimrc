@@ -76,9 +76,9 @@ set gdefault
 set grepprg=ack
 
 " Theme
-set background=dark
+"set background=dark
 "let g:solarized_termcolors=256
-colorscheme polarized 
+"colorscheme polarized 
 
 " Airline Status Bar
 let g:airline#extensions#tabline#enabled = 0

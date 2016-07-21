@@ -1,15 +1,30 @@
 " User plugin configurations
 
 " Enable vim theme
-"syntax enable
-colorscheme tomorrow
-
+syntax enable
+"colorscheme tomorrow
+colorscheme Tomorrow-Night-Bright
 
 " Custom color tweaks
-":highlight LineNr ctermfg=10
 ":highlight VertSplit ctermbg=darkgrey
-":highlight Normal ctermbg=none
-":highlight NonText ctermbg=none
+":highlight LineNr ctermfg=10
+:highlight Normal ctermbg=none
+:highlight NonText ctermbg=none
+
+" Typescript tags
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
 
 " Toggle relative line numbers
 function! NumberToggle()
