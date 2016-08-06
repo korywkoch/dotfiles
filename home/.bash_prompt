@@ -62,7 +62,7 @@ get_prompt(){
   local cyan="\[\033[0;36m\]"    # cyan
   local white="\[\033[0;37m\]"   # white
 
-  echo "$darkgray\n\u@\h \w $white\$(git_branch)$darkgray>\n$off$ "
+  echo "$black\n\u@\h \w $white\$(git_branch)$darkgray>\n$off$ "
 }
 
 #set custom prompt

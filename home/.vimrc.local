@@ -3,6 +3,7 @@
 " Enable vim theme
 syntax enable
 "colorscheme tomorrow
+"colorscheme Tomorrow-Night-Eighties
 colorscheme Tomorrow-Night-Bright
 
 " Custom color tweaks

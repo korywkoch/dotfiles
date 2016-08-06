@@ -34,6 +34,7 @@ Plugin 'joshdick/onedark.vim'
 
 " Preferences
 " -----------------------------------------------------------------------------
+
 " Behavior
 filetype plugin indent on
 set encoding=utf-8
@@ -75,10 +76,14 @@ set hlsearch
 set gdefault
 set grepprg=ack
 
+
+" UI
+" -----------------------------------------------------------------------------
+
 " Theme
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme polarized 
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme polarized 
 
 " Airline Status Bar
 let g:airline#extensions#tabline#enabled = 0
@@ -86,7 +91,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
 set laststatus=2
 
-" UI
+" Vim UI
 set t_Co=256
 set scrolloff=3
 set sidescrolloff=3
@@ -124,12 +129,18 @@ let mapleader=','
 " -----------------------------------------------------------------------------
 runtime macros/matchit.vim
 
-" NERDTree ignores
+" NERDTree
 let NERDSpaceDelims=1
 let NERDTreeWinSize=30
 let g:NERDTreeIgnore=['build$','tags', '.git', 'node_modules', 'jspm_packages']
 highlight link NERDTreeExecFile ModeMsg " Disable horrible bg on executable files in NERDTree
 
+" NERDCommenter
+let g:nerdspacedelims = 1
+let g:nerdcommentemptylines = 1
+let g:nerdtrimtrailingwhitespace = 1
+
+" Ctrl-P
 let g:ctrlp_custom_ignore='vendor/bundle\|.sass-cache\|tmp/cache\|.git$'
 let g:ctrlp_by_filename=1
 let g:ctrlp_extensions=['line', 'changes']
@@ -137,6 +148,7 @@ let g:ctrlp_cache_dir=$HOME.'/.vim/tmp/ctrlp/'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['settings.json', 'README.md', 'gulpfile.js']
 
+" Syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"attribute name", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
@@ -144,30 +156,26 @@ let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_typescript_tsc_fname = ''
 let g:typescript_compiler_options = ''
 
-let g:snippets_dir=$HOME.'/.vim/snippets/'
+" Snippets (disabled -- conflicting w/ syntastic currently)
+" let g:snippets_dir=$HOME.'/.vim/snippets/'
+" let g:ultisnipsexpandtrigger = "<nop>"
+" inoremap <expr> <cr> pumvisible() ? "<c-r>=ultisnips#expandsnippetorjump()<cr>" : "\<cr>"
 
+" YankRing
 let g:yankring_window_height=10
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
-" Disable GitGutter on startup and not so eager on the repaints
+" Disable gitgutter on startup and not so eager on the repaints
 let g:gitgutter_enabled=0
 let g:gitgutter_eager=0
 
+" Tagbar
 let g:tagbar_sort=0
-" if executable('coffeetags')
-"   let g:tagbar_type_coffee = {
-"       \ 'kinds': ['f:functions', 'o:object'],
-"       \ 'kind2scope': {'f': 'object', 'o': 'object'},
-"       \ 'sro': ".", 'ctagsbin': 'coffeetags', 'ctagsargs': '--include-vars ',
-"       \}
-" endif
-
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
 " Key mapping
 " -----------------------------------------------------------------------------
-" RSI reduction
 nnoremap j gj
 nnoremap k gk
 inoremap jj <ESC>
@@ -226,9 +234,6 @@ map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<cr>
 
 " Clean whitespace
 map <leader>CW :%s/\s\+$//<cr>:let @/=''<cr>
-
-" Strip `{|}|;` (JS -> CS...)
-map <leader>CC :%s/{//e \| %s/;//e \| %s/}//e \| %s/\s\+$//<cr><cr>:let @/=''<cr>
 
 " Convert CSS to Sass
 map <leader>CS :!sass-convert -F css -T sass<cr>
