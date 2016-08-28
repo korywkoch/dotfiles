@@ -16,7 +16,7 @@ export CLICOLOR=1
 # 10. directory writable to others, with sticky bit
 # 11. directory writable to others, without sticky bit
 #      LSCOLORS=0102030405060708091011
-export LSCOLORS=xxcxgxfxbxdxbxbxbxexex
+export LSCOLORS=hxgxgxfxAxdxbxbxbxexex
 
 # Color          | Escaped    | ANSI
 # -------------- | ---------- | ------------

@@ -16,7 +16,7 @@ export HISTFILESIZE=10000
 export HISTSIZE=10000
 
 # Add some color to man pages
-export LESS_TERMCAP_md="$(tput setaf 4)"
+export LESS_TERMCAP_md="$(tput setaf 7)"
 
 # unset MAILCHECK
 
@@ -26,9 +26,9 @@ shopt -s nocaseglob
 shopt -s cdspell
 
 # Bring in stuff that's elsewhere
-if [ -f ~/.bash_prompt ]; then source ~/.bash_prompt; fi
-if [ -f ~/.bash_aliases ]; then source ~/.bash_aliases; fi
-if [ -f ~/.bash_completions ]; then source ~/.bash_completions; fi
+if [ -f ~/.bash.prompt ]; then source ~/.bash.prompt; fi
+if [ -f ~/.bash.aliases ]; then source ~/.bash.aliases; fi
+if [ -f ~/.bash.completions ]; then source ~/.bash.completions; fi
 if [ -f ~/.bashrc.local ]; then source ~/.bashrc.local; fi
 
 # Use vi key-bindings in shell

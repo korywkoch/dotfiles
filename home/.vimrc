@@ -136,9 +136,11 @@ let g:NERDTreeIgnore=['build$','tags', '.git', 'node_modules', 'jspm_packages']
 highlight link NERDTreeExecFile ModeMsg " Disable horrible bg on executable files in NERDTree
 
 " NERDCommenter
-let g:nerdspacedelims = 1
-let g:nerdcommentemptylines = 1
-let g:nerdtrimtrailingwhitespace = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDDefaultAlign = 'left'
+" let g:NERDCompactSexyComs = 1
 
 " Ctrl-P
 let g:ctrlp_custom_ignore='vendor/bundle\|.sass-cache\|tmp/cache\|.git$'
@@ -151,7 +153,17 @@ let g:ctrlp_root_markers = ['settings.json', 'README.md', 'gulpfile.js']
 " Syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"attribute name", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:syntastic_html_tidy_ignore_errors=[
+	\ "proprietary attribute" ,
+	\ "attribute name", 
+	\ "trimming empty <",
+	\ "unescaped &" , 
+	\ "lacks \"action", 
+	\ "is not recognized!", 
+	\	"discarding unexpected", 
+	\ "attribute \"#",
+	\ "missing </a> before", 
+	\ ]
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_typescript_tsc_fname = ''
 let g:typescript_compiler_options = ''
@@ -279,7 +291,8 @@ if !exists("autocommands_loaded")
 
 	" Remove trailing whitespace
 	autocmd BufWritePre *.ts :%s/\s\+$//e
-
+	autocmd BufWritePre *.scss :%s/\s\+$//e
+	
   " Reload .vimrc after it or vimrc.local has been saved
   au! BufWritePost .vimrc source %
   au! BufWritePost .vimrc.local source ~/.vimrc
