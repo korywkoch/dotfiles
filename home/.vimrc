@@ -14,7 +14,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'slim-template/vim-slim.git'
 Plugin 'majutsushi/tagbar'
 Plugin 'milkypostman/vim-togglelist' 
 Plugin 'sirver/ultisnips'
@@ -131,7 +130,7 @@ runtime macros/matchit.vim
 
 " NERDTree
 let NERDSpaceDelims=1
-let NERDTreeWinSize=30
+let NERDTreeWinSize=40
 let g:NERDTreeIgnore=['build$','tags', '.git', 'node_modules', 'jspm_packages']
 highlight link NERDTreeExecFile ModeMsg " Disable horrible bg on executable files in NERDTree
 
@@ -212,7 +211,7 @@ map <silent> \ :silent nohlsearch<cr>
 " Function keys for plugin lists, <F8>-<F10> is reserved for .vimrc.local
 let g:ctrlp_map='<F1>'
 map <F2> :NERDTreeToggle<cr>
-map <F3> :BuffergatorToggle<cr>
+" map <F3> :BuffergatorToggle<cr>
 nnoremap <silent> <F4> :TagbarToggle<cr>
 nnoremap <silent> <F5> :YRShow<cr>
 ino <silent> <F6> <c-r>=ShowAvailableSnips()<cr>
