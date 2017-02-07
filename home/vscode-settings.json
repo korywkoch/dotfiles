@@ -1,0 +1,54 @@
+// Place your settings in this file to overwrite the default settings
+// Location: ~/Library/Application Support/Code/User/settings.json
+{
+// Vim config
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [{
+		"before": ["j", "j"],
+		"after": ["<Esc>"]
+	}],
+// Editor
+    "editor.trimAutoWhitespace": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.useTabStops": true,
+    "editor.detectIndentation": false,
+    "editor.cursorStyle": "block",
+// Workbench
+    "workbench.sideBar.location": "left",
+// Hidden folders
+    "files.exclude": {
+        "**/._*": true,
+        "**/node_modules/": true,
+        "**/.sass-cache/": true,
+        ".vscode/": true
+    },
+    "files.associations": {
+        "*.scss": "scss"
+    },
+// Search
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "dist/": true
+    },
+// File Explorer
+    "explorer.openEditors.visible": 0,
+    "explorer.autoReveal": false,
+// PHP debugging
+    "php.validate.executablePath": "/Applications/XAMPP/xamppfiles/bin/php",
+// Typescript
+	"typescript.check.tscVersion": false,
+	"vsicons.dontShowNewVersionMessage": true,
+	"editor.cursorBlinking": "blink",
+	"window.zoomLevel": 0,
+	"vsicons.projectDetection.autoReload": true,
+// Auto {import}
+	"autoimport.doubleQuotes": true,
+// Git Project Manager
+	"gitProjectManager.baseProjectsFolders": [
+		"/Users/kory.koch/dev/carilion/edison.carilionclinic.org"
+    ],
+	"gitProjectManager.storeRepositoriesBetweenSessions": true,
+	"gitProjectManager.ignoredFolders": ["node_modules"]
+}
