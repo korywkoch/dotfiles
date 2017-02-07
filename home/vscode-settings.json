@@ -7,6 +7,10 @@
 		"before": ["j", "j"],
 		"after": ["<Esc>"]
 	}],
+	"vim.otherModesKeyBindings": [{
+		"before": ["<tab>"],
+		"after": ["%"]
+	}],
 // Editor
     "editor.trimAutoWhitespace": true,
     "editor.tabSize": 4,
@@ -45,6 +49,7 @@
 	"vsicons.projectDetection.autoReload": true,
 // Auto {import}
 	"autoimport.doubleQuotes": true,
+	"autoimport.spaceBetweenBraces": false,
 // Git Project Manager
 	"gitProjectManager.baseProjectsFolders": [
 		"/Users/kory.koch/dev/carilion/edison.carilionclinic.org"
