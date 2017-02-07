@@ -6,8 +6,14 @@ alias hosts='sudo $EDITOR /etc/hosts'
 alias ping='ping -c4'
 alias home='cd ~/'
 
+# find and delete (recursively)
+function fd() { find . -name \\"$1" -delete; }
+
 # cd and ls
 function cdl { cd $1; ls; }
+
+# ls without .DS_Store files
+function ll { ls -Fal | grep --color=always -v .DS_Store; }
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"

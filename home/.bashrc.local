@@ -6,6 +6,9 @@
 # which shouldn't be checked into source control
 if [[ -f ~/.bashrc.private ]]; then source ~/.bashrc.private; fi
 
+# Git completions
+if [[ -f ~/.git-completion.bash ]]; then source ~/.git-completion.bash; fi
+
 # Open VS Code.
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
