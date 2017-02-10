@@ -7,6 +7,7 @@ PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/mysql/bin:$PATH"
 PATH="/usr/local/heroku/bin:$PATH"
+PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH
 export EDITOR="vim"
@@ -30,16 +31,11 @@ if [ -f ~/.bash.prompt ]; then source ~/.bash.prompt; fi
 if [ -f ~/.bash.aliases ]; then source ~/.bash.aliases; fi
 if [ -f ~/.bash.completions ]; then source ~/.bash.completions; fi
 if [ -f ~/.bashrc.local ]; then source ~/.bashrc.local; fi
+if [ -f ~/.tnsrc ]; then source ~/.tnsrc; fi
 
 # Use vi key-bindings in shell
 set editing-mode vi
 
-# Only print if we're in an interactive shell.
-# Non-interactive stuff like rsync will blow up otherwise
-#if [[ "$-" == *"i"* ]]; then
-#  echo -e "\033[0;35m------------------------------------------\033[0m"
-#fi
-
-
 export NVM_DIR="/Users/kory.koch/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+

@@ -3,14 +3,21 @@
 {
 // Vim config
     "vim.useSystemClipboard": true,
+	"vim.leader": ",",
     "vim.insertModeKeyBindings": [{
 		"before": ["j", "j"],
 		"after": ["<Esc>"]
 	}],
-	"vim.otherModesKeyBindings": [{
-		"before": ["<tab>"],
-		"after": ["%"]
-	}],
+	"vim.otherModesKeyBindings": [
+		{"before": ["<tab>"], "after": ["%"]},
+		{"before": ["<ctrl>", "h"], "after": [], "commands": [
+			{"command": "workbench.view.explorer", "args": []}
+		]},
+		{"before": ["leader", "c"], "after": [], "commands": [
+			{"command": "editor.action.commentLine", "args": []}
+		]}
+		// @TODO: toggle multi-line comment
+	],
 // Editor
     "editor.trimAutoWhitespace": true,
     "editor.tabSize": 4,
@@ -25,6 +32,7 @@
         "**/._*": true,
         "**/node_modules/": true,
         "**/.sass-cache/": true,
+				"**/npm-debug.log": true,
         ".vscode/": true
     },
     "files.associations": {
@@ -56,4 +64,5 @@
     ],
 	"gitProjectManager.storeRepositoriesBetweenSessions": true,
 	"gitProjectManager.ignoredFolders": ["node_modules"]
+
 }

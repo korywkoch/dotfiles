@@ -1,0 +1,6 @@
+// Place your key bindings in this file to overwrite the defaults
+// location: ~/Library/Application Support/Code/User/keybindings.json
+[
+	{"key": "ctrl+h", "command": "workbench.view.explorer", "when": "editorTextFocus"},
+	{"key": "ctrl+l", "command": "workbench.action.navigateForward"}
+]
