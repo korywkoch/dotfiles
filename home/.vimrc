@@ -79,17 +79,6 @@ set grepprg=ack
 " UI
 " -----------------------------------------------------------------------------
 
-" Theme
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme polarized 
-
-" Airline Status Bar
-let g:airline#extensions#tabline#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
-set laststatus=2
-
 " Vim UI
 set t_Co=256
 set scrolloff=3
@@ -109,6 +98,18 @@ set foldlevelstart=0
 set foldmethod=marker
 set formatoptions=tcq
 set nowrap
+
+" Theme
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme polarized 
+
+" Airline Status Bar
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:airline_theme='tomorrow'
+set laststatus=2
+
 
 if has("mouse")
  set mouse=a

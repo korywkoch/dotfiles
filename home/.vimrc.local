@@ -2,9 +2,10 @@
 
 " Enable vim theme
 syntax enable
-"colorscheme tomorrow
-"colorscheme Tomorrow-Night-Eighties
-colorscheme Tomorrow-Night-Bright
+" colorscheme tomorrow
+" colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Bright
+colorscheme onedark
 
 " Custom color tweaks
 ":highlight VertSplit ctermbg=darkgrey

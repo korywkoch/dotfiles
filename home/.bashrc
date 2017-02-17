@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Environment pathing and editor defaults
-PATH="$HOME/local/bin:$PATH"
-PATH="$HOME/.bin:$PATH"
-PATH="/usr/local/bin:$PATH"
-PATH="/usr/local/sbin:$PATH"
-PATH="/usr/local/mysql/bin:$PATH"
-PATH="/usr/local/heroku/bin:$PATH"
 PATH="$PATH:$HOME/.rvm/bin"
+PATH="$PATH:$HOME/local/bin"
+PATH="$PATH:$HOME/.bin"
+PATH="$PATH:/usr/local/bin"
+PATH="$PATH:/usr/local/sbin"
+PATH="$PATH:/usr/local/mysql/bin"
+PATH="$PATH:/usr/local/heroku/bin"
 
 export PATH
 export EDITOR="vim"
@@ -34,8 +34,6 @@ if [ -f ~/.bashrc.local ]; then source ~/.bashrc.local; fi
 if [ -f ~/.tnsrc ]; then source ~/.tnsrc; fi
 
 # Use vi key-bindings in shell
+set -o vi
 set editing-mode vi
-
-export NVM_DIR="/Users/kory.koch/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 

@@ -10,13 +10,12 @@ if [[ -f ~/.bashrc.private ]]; then source ~/.bashrc.private; fi
 if [[ -f ~/.git-completion.bash ]]; then source ~/.git-completion.bash; fi
 
 # Open VS Code.
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+# function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
 # init z (https://github.com/rupa/z)
 . ~/dev/utils/z/z.sh
 
 #rvm 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 # iTerm2 integration
@@ -25,3 +24,8 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # nvm
 export NVM_DIR="/Users/kory.koch/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Java/Android Home
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
