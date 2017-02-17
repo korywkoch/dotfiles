@@ -19,8 +19,6 @@ export HISTSIZE=10000
 # Add some color to man pages
 export LESS_TERMCAP_md="$(tput setaf 7)"
 
-# unset MAILCHECK
-
 # http://ss64.com/bash/shopt.html
 shopt -s histappend
 shopt -s nocaseglob
