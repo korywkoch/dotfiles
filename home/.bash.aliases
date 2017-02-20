@@ -21,3 +21,8 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # File size
 alias fs="stat -f \"%z bytes\""
 
+# Nav utils
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."

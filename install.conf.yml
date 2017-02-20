@@ -6,7 +6,7 @@
 
 - link:
     ~/.dotfiles: 'home'
-    ~/tmux-status.sh: ~/.dotfiles/tmux-status.sh
+    ~/.inputrc: ~/.dotfiles/.inputrc
     ~/.tmux.conf: ~/.dotfiles/.tmux.conf
     ~/.vimrc.local: ~/.dotfiles/.vimrc.local
     ~/.vimrc: ~/.dotfiles/.vimrc
@@ -14,6 +14,7 @@
     ~/.bash.completions: ~/.dotfiles/.bash.completions
     ~/.bash.prompt: ~/.dotfiles/.bash.prompt
     ~/.bashrc: ~/.dotfiles/.bashrc
+    ~/tmux-status.sh: ~/.dotfiles/tmux-status.sh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
