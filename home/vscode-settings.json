@@ -1,68 +1,111 @@
 // Place your settings in this file to overwrite the default settings
 // Location: ~/Library/Application Support/Code/User/settings.json
 {
-// Vim config
-    "vim.useSystemClipboard": true,
+
+// Vim config (vscode-vim)
+	"vim.useSystemClipboard": true,
 	"vim.leader": ",",
-    "vim.insertModeKeyBindings": [{
-		"before": ["j", "j"],
-		"after": ["<Esc>"]
-	}],
+	"vim.insertModeKeyBindings": [
+		{
+			// To enable key repeat by holding down key:
+			// defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         // For VS Code
+			// defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false // For VS Code Insider
+			"before": ["j", "j"],
+			"after": ["<Esc>"]
+		}
+	],
 	"vim.otherModesKeyBindings": [
-		{"before": ["<tab>"], "after": ["%"]},
-		{"before": ["<ctrl>", "h"], "after": [], "commands": [
-			{"command": "workbench.view.explorer", "args": []}
-		]},
-		{"before": ["leader", "c"], "after": [], "commands": [
-			{"command": "editor.action.commentLine", "args": []}
-		]}
+		{
+			"before": ["<tab>"],
+			"after": ["%"]
+		},
+		{
+			"before": ["<ctrl>", "h"],
+			"after": [],
+			"commands": [{
+				"command": "workbench.view.explorer",
+				"args": []
+			}]
+		},
+		{
+			"before": ["leader", "c"],
+			"after": [],
+			"commands": [{
+				"command": "editor.action.commentLine",
+				"args": []
+			}]
+		},
+		{
+			// @TODO: find way to disable normally bound keys during leader-chords
+			"before": ["leader", "l"],
+			"after": [],
+			"commands": [{
+				"command": "workbench.action.openWorkspaceSettings",
+				"args": []
+			}]
+		}
 		// @TODO: toggle multi-line comment
 	],
+
 // Editor
-    "editor.trimAutoWhitespace": true,
-    "editor.tabSize": 4,
-    "editor.insertSpaces": false,
-    "editor.useTabStops": true,
-    "editor.detectIndentation": false,
-    "editor.cursorStyle": "block",
-// Workbench
-    "workbench.sideBar.location": "left",
-// Hidden folders
-    "files.exclude": {
-        "**/._*": true,
-        "**/node_modules/": true,
-        "**/.sass-cache/": true,
-				"**/npm-debug.log": true,
-        ".vscode/": true
-    },
-    "files.associations": {
-        "*.scss": "scss"
-    },
-// Search
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "dist/": true
-    },
+	"editor.detectIndentation": true,
+	"editor.trimAutoWhitespace": true,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.useTabStops": true,
+	"editor.cursorStyle": "block",
+
+// Files and folders
+	"files.exclude": {
+		"**/._*": true,
+		"**/node_modules/": true,
+		"**/.sass-cache/": true,
+		"**/npm-debug.log": true,
+		".vscode/": true,
+		"bower_components": true,
+		"node_modules": true
+	},
+	"files.associations": {
+		"*.scss": "scss"
+	},
+
 // File Explorer
-    "explorer.openEditors.visible": 0,
-    "explorer.autoReveal": false,
-// PHP debugging
-    "php.validate.executablePath": "/Applications/XAMPP/xamppfiles/bin/php",
+	"explorer.openEditors.visible": 0,
+	"explorer.autoReveal": false,
+
+// Search
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"dist/": true
+	},
+
+// Misc.
+	"php.validate.executablePath": "/Applications/XAMPP/xamppfiles/bin/php",
+
 // Typescript
 	"typescript.check.tscVersion": false,
 	"vsicons.dontShowNewVersionMessage": true,
 	"editor.cursorBlinking": "blink",
 	"window.zoomLevel": 0,
 	"vsicons.projectDetection.autoReload": true,
+
 // Auto {import}
 	"autoimport.doubleQuotes": true,
 	"autoimport.spaceBetweenBraces": false,
-// Git Project Manager
-	"gitProjectManager.baseProjectsFolders": [
-		"/Users/kory.koch/dev/carilion/edison.carilionclinic.org"
-    ],
-	"gitProjectManager.storeRepositoriesBetweenSessions": true,
-	"gitProjectManager.ignoredFolders": ["node_modules"]
 
+// Sync
+	"sync.lastUpload": "",
+	"sync.autoDownload": false,
+	"sync.autoUpload": false,
+	"sync.version": 251,
+	"sync.showSummary": true,
+	"sync.forceDownload": true,
+	"sync.anonymousGist": false,
+
+// Workbench
+  "workbench.welcome.enabled": true,
+	"workbench.sideBar.location": "left",
+	"workbench.colorTheme": "Atom One Dark",
+	"workbench.iconTheme": "vs-seti"
 }

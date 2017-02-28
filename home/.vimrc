@@ -16,7 +16,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'milkypostman/vim-togglelist' 
-Plugin 'sirver/ultisnips'
+Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
@@ -103,6 +104,16 @@ set nowrap
 " set background=dark
 " let g:solarized_termcolors=256
 " colorscheme polarized 
+
+" MacVim font
+set guifont=Menlo\ for\ Powerline:h12
+if has("gui_running")
+	set guioptions-=T  "Remove toolbar
+	set transparency=0
+	set guioptions=aAce
+  set undofile
+  set undodir=~/.vim/backup
+endif
 
 " Airline Status Bar
 let g:airline#extensions#tabline#enabled = 0
