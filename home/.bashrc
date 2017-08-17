@@ -35,3 +35,9 @@ if [ -f ~/.tnsrc ]; then source ~/.tnsrc; fi
 set -o vi
 set editing-mode vi
 
+
+###-tns-completion-start-###
+if [ -f /Users/kory.koch/.tnsrc ]; then 
+    source /Users/kory.koch/.tnsrc 
+fi
+###-tns-completion-end-###

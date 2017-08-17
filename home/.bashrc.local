@@ -29,3 +29,6 @@ export NVM_DIR="/Users/kory.koch/.nvm"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
+# Print msg on init.
+# @TODO: set var or try/catch ?
+curl -m 5 https://api.github.com/zen

@@ -3,6 +3,12 @@
   status = auto
   branch = auto
   ui = auto
+[color "status"]
+  added = green
+  changed = red bold
+  untracked = magenta bold
+[color "branch"]
+  remote = yellow
 [core]
   excludesfile = ~/.gitignore
 [alias]
@@ -19,7 +25,8 @@
   co = checkout
   del = !FILES=$(git ls-files --deleted) && git rm $FILES
   msg = commit --allow-empty -m
-  glog = log --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
+  l = log --pretty='format:%d %C(magenta)%h%C(reset) %an - %C(white)%s' --graph
+  glog = log --pretty='format:%d %C(green)%h%Creset %an - %s' --graph
 [help]
   autocorrect = 1
 [push]
@@ -28,8 +35,8 @@
   autosetupmerge = always
   autosetuprebase = always
 [merge]
-	tool = chdiff 
-  trustExitCode = 0 
+	tool = chdiff
+  trustExitCode = 0
 [mergetool "filemerge"]
   cmd = /usr/bin/env chdiff --wait "$LOCAL" "$REMOTE"
   keepBackup = false
