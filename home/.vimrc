@@ -1,6 +1,7 @@
-" Disable vi 
+" Disable vi
 set nocompatible
 filetype off
+
 
 " Use Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -15,15 +16,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'milkypostman/vim-togglelist' 
+Plugin 'milkypostman/vim-togglelist'
 Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/YankRing.vim'
-Plugin 'Valloric/YouCompleteMe' 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'mkitt/tabline.vim'
@@ -31,6 +30,9 @@ Plugin 'rking/ag.vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'elixir-lang/vim-elixir'
+" Plugin 'sirver/ultisnips'
+" Plugin 'Valloric/YouCompleteMe'
 
 " Preferences
 " -----------------------------------------------------------------------------
@@ -103,7 +105,7 @@ set nowrap
 " Theme
 " set background=dark
 " let g:solarized_termcolors=256
-" colorscheme polarized 
+" colorscheme polarized
 
 " MacVim font
 set guifont=Menlo\ for\ Powerline:h12
@@ -166,14 +168,14 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
 let g:syntastic_html_tidy_ignore_errors=[
 	\ "proprietary attribute" ,
-	\ "attribute name", 
+	\ "attribute name",
 	\ "trimming empty <",
-	\ "unescaped &" , 
-	\ "lacks \"action", 
-	\ "is not recognized!", 
-	\	"discarding unexpected", 
+	\ "unescaped &" ,
+	\ "lacks \"action",
+	\ "is not recognized!",
+	\	"discarding unexpected",
 	\ "attribute \"#",
-	\ "missing </a> before", 
+	\ "missing </a> before",
 	\ ]
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_typescript_tsc_fname = ''
@@ -245,7 +247,7 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Leader mapping
 " -----------------------------------------------------------------------------
 " Find the goods, ag style
-map <leader>f :Ag 
+map <leader>f :Ag
 
 " Edit .vimrc, .vimrc.local and .bashrc_local
 nmap <leader>evm <C-w><C-v><C-l>:e ~/.vimrc<cr>
@@ -281,6 +283,8 @@ function! s:setWrapping()
   setlocal wrap linebreak nolist spell textwidth=72
 endfunction
 
+
+
 " Wrap markdown and compile on save using the markdown preview bundle
 function! s:setMarkdown()
   call s:setWrapping()
@@ -303,7 +307,7 @@ if !exists("autocommands_loaded")
 	" Remove trailing whitespace
 	autocmd BufWritePre *.ts :%s/\s\+$//e
 	autocmd BufWritePre *.scss :%s/\s\+$//e
-	
+
   " Reload .vimrc after it or vimrc.local has been saved
   au! BufWritePost .vimrc source %
   au! BufWritePost .vimrc.local source ~/.vimrc

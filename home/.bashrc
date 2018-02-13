@@ -8,6 +8,7 @@ PATH="$PATH:/usr/local/bin"
 PATH="$PATH:/usr/local/sbin"
 PATH="$PATH:/usr/local/mysql/bin"
 PATH="$PATH:/usr/local/heroku/bin"
+PATH="$PATH:$HOME/dev/utils/apache-maven-3.5.2/bin"
 
 export PATH
 export EDITOR="vim"
@@ -37,7 +38,7 @@ set editing-mode vi
 
 
 ###-tns-completion-start-###
-if [ -f /Users/kory.koch/.tnsrc ]; then 
-    source /Users/kory.koch/.tnsrc 
+if [ -f /Users/kory.koch/.tnsrc ]; then
+    source /Users/kory.koch/.tnsrc
 fi
 ###-tns-completion-end-###

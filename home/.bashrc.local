@@ -1,6 +1,6 @@
 # -----------------------------------------------
 # Last in the list being sourced from `~/.bashrc`
-# ---------------------------------------------- 
+# ----------------------------------------------
 
 # Pull in any non-public stuff from .bashrc.private
 # which shouldn't be checked into source control
@@ -15,7 +15,7 @@ if [[ -f ~/.git-completion.bash ]]; then source ~/.git-completion.bash; fi
 # init z (https://github.com/rupa/z)
 . ~/dev/utils/z/z.sh
 
-#rvm 
+#rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 # iTerm2 integration
@@ -29,6 +29,15 @@ export NVM_DIR="/Users/kory.koch/.nvm"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
+# docker4drupal
+alias dps='docker-compose ps'
+alias dup='docker-compose up -d'
+alias ddown='docker-compose down'
+alias dphp='docker-compose exec php'
+alias ddrush='docker-compose exec php drush -r web'
+alias dcomposer='docker-compose exec php composer'
+alias ddrupal='docker-compose exec php ./vendor/bin/drupal'
+
 # Print msg on init.
 # @TODO: set var or try/catch ?
-curl -m 5 https://api.github.com/zen
+curl -m 3 https://api.github.com/zen

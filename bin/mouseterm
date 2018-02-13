@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp -R /Library/Application\ Support/SIMBL/Plugins/ ~/dev/utils/mouseterm/MouseTerm.bundle

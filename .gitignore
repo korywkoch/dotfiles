@@ -8,3 +8,7 @@
 ehthumbs.db
 Thumbs.db
 .code_sync
+
+# custom/local/private files
+*.bashrc.private
+*.bashrc.local
