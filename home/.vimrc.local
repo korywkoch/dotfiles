@@ -5,7 +5,9 @@ syntax enable
 " colorscheme tomorrow
 " colorscheme Tomorrow-Night-Eighties
 " colorscheme Tomorrow-Night-Bright
-colorscheme onedark
+" colorscheme onedark
+" set background=dark
+" colorscheme palenight
 
 " Custom color tweaks
 ":highlight VertSplit ctermbg=darkgrey

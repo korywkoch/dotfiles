@@ -5,6 +5,7 @@ alias ls='ls -Fal'
 alias hosts='sudo $EDITOR /etc/hosts'
 alias ping='ping -c4'
 alias home='cd ~/'
+alias dc='docker-compose'
 
 # find and delete (recursively)
 function fd() { find . -name \\"$1" -delete; }

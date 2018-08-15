@@ -13,13 +13,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'milkypostman/vim-togglelist'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/YankRing.vim'
@@ -28,9 +28,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'mkitt/tabline.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ternjs/tern_for_vim'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
 " Plugin 'sirver/ultisnips'
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -102,26 +105,27 @@ set foldmethod=marker
 set formatoptions=tcq
 set nowrap
 
-" Theme
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme polarized
-
 " MacVim font
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=Meslo\ LG\ M\ for\ Powerline:h14
 if has("gui_running")
 	set guioptions-=T  "Remove toolbar
 	set transparency=0
 	set guioptions=aAce
   set undofile
   set undodir=~/.vim/backup
+	set clipboard=unnamed
 endif
+
+" Theme
+set background=dark
+set termguicolors
+colorscheme quantum
 
 " Airline Status Bar
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
-set laststatus=2
+let g:airline_theme='dracula'
+set laststatus=1
 
 
 if has("mouse")
@@ -269,6 +273,9 @@ map <leader>rt :!ctags --extra=+f -R *<cr><cr>
 " Closes the window showing the location list from syntastic errors
 map <silent><leader>lc :lcl<cr>
 
+" Automatic import for .ts definitions
+map <silent><leader>ai :TsuImport<cr>
+
 " Yank/paste contents using an unnamed register
 vmap <silent><leader>y "xy
 map <silent><leader>p "xp
@@ -325,4 +332,3 @@ endif
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-

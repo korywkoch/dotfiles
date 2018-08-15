@@ -29,6 +29,7 @@ shopt -s cdspell
 if [ -f ~/.bash.prompt ]; then source ~/.bash.prompt; fi
 if [ -f ~/.bash.aliases ]; then source ~/.bash.aliases; fi
 if [ -f ~/.bash.completions ]; then source ~/.bash.completions; fi
+if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; fi
 if [ -f ~/.bashrc.local ]; then source ~/.bashrc.local; fi
 if [ -f ~/.tnsrc ]; then source ~/.tnsrc; fi
 
@@ -42,3 +43,7 @@ if [ -f /Users/kory.koch/.tnsrc ]; then
     source /Users/kory.koch/.tnsrc
 fi
 ###-tns-completion-end-###
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
