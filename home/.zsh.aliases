@@ -1,0 +1,27 @@
+# aliases
+alias cls='clear'
+alias mysqlstart='sudo /Library/StartupItems/MySQLCOM/MySQLCOM start'
+alias ls='ls -Fal'
+alias hosts='sudo $EDITOR /etc/hosts'
+alias ping='ping -c4'
+alias home='cd ~/'
+alias dc='docker-compose'
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete" # Recursively delete `.DS_Store` files
+alias fs="stat -f \"%z bytes\""
+alias ..="cd .."
+
+# healthify 
+# alias gpsup="git push --set-upstream origin $(git_current_branch)"
+alias push_hoth='git push hoth HEAD:master --force'
+alias foreman_start='foreman start -f Procfile.dev -p 3000'
+alias aptible_auth='aptible login --lifetime=7d --email=kory.koch@modea.com'
+alias gfco='function _gfco(){ gfo $1; gco $1; };_gfco'
+alias gumf="git ls-files --others --modified --exclude-standard"
+alias gdnam="git diff --name-only --diff-filter=AM"
+alias gdcop="{ gumf & gdnam; } | xargs rubocop"
+alias gdspec="gumf | xargs rspec"
+alias gfop="git fetch origin --prune"
+
+function fd() { find . -name \\"$1" -delete; } # find and delete (recursively)
+function cdl { cd $1; ls; } # cd and ls
+
